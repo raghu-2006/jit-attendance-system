@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1b3d">
+  <title>Admin console | Jyothi Technologies Batch-2</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body data-portal="admin">
+  <header class="topbar">
+    <a class="wordmark" href="/admin" aria-label="Jyothi Technologies Batch-2 home"><span class="brand-mark">JT<span>.</span></span><span class="brand-copy"><strong>JYOTHI TECHNOLOGIES</strong><span>BATCH-2 <i>/</i> JUNIORS</span></span></a>
+    <div class="header-tools"><nav class="topnav"><a class="nav-link" href="/student">Student portal <span aria-hidden="true">↗</span></a><a class="nav-link active" href="/admin">Admin portal</a></nav><div class="device-clock"><span>DEVICE TIME</span><time id="device-clock" aria-label="Current device time">--:--:--</time></div></div>
+  </header>
+
+  <main class="portal-layout" id="auth-view">
+    <section class="portal-intro admin-intro">
+      <div class="portal-kicker"><span class="portal-kicker-mark">JT</span><span>JYOTHI TECHNOLOGIES · BATCH 2 (JUNIORS)</span></div>
+      <div class="portal-title"><span class="eyebrow">JIT · ADMINISTRATION</span><h1>Attendance Admin Portal</h1><p>Review student profiles and daily attendance from one centralized register.</p></div>
+      <section class="schedule-card admin-schedule" aria-labelledby="admin-schedule-heading">
+        <h2 id="admin-schedule-heading"><span class="schedule-icon">▤</span> Attendance Overview</h2>
+        <ul class="schedule-list">
+          <li><strong>Student register</strong><span>9 enrolled students</span><small>Profiles and contact details</small></li>
+          <li><strong>Daily records</strong><span>Day in &amp; day out</span><small>Times shown in India Standard Time</small></li>
+          <li><strong>Break activity</strong><span>Short break &amp; lunch</span><small>Start and end times</small></li>
+          <li><strong>Database export</strong><span>CSV download</span><small>Complete attendance history</small></li>
+        </ul>
+      </section>
+      <p class="campus-line"><span aria-hidden="true">⌖</span><span>Campus location: <strong>12°50′32.4″N, 77°30′45.0″E</strong><small>Tataguni, Bengaluru</small></span></p>
+    </section>
+    <section class="portal-login">
+      <div class="auth-card">
+        <div class="section-index">ADMIN PORTAL <span>AUTHORIZED ACCESS</span></div>
+        <h2>Admin Sign In</h2><p class="muted">Sign in with an authorized JIT administrator account.</p>
+        <form id="login-form" class="form-stack">
+          <label for="username">Admin username</label><input id="username" name="username" autocomplete="username" placeholder="Enter your admin username" required>
+          <p class="student-roster"><span>Authorized accounts:</span> admin, domodar, karan kumar</p>
+          <label for="password">Password</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your admin password" required><button class="password-toggle" type="button" aria-label="Show password" data-password-toggle>SHOW</button></div>
+          <div class="form-error" id="login-error" role="alert" hidden></div>
+          <button class="button button-dark button-wide" type="submit"><span>Sign in as admin</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="auth-note"><span class="lock-icon">⌑</span><span>Student profiles and attendance records are restricted to administrators.</span></div>
+      </div>
+      <footer class="portal-login-footer">JYOTHI INSTITUTE OF TECHNOLOGY <span>ADMIN ACCESS</span></footer>
+    </section>
+  </main>
+
+  <main class="dashboard admin-dashboard" id="admin-view" hidden>
+    <div class="dashboard-head"><div><div class="section-index">ADMIN CONSOLE <span>DATABASE · LIVE</span></div><h1>Attendance <span class="period">records.</span></h1><p class="muted">Student profiles and daily campus activity.</p></div><div class="user-actions"><span class="admin-user" id="admin-name">Administrator</span><button class="button button-outline" type="button" id="export-button">↓ <span>Export CSV</span></button><button class="button button-dark" type="button" data-logout>Log out <span aria-hidden="true">↗</span></button></div></div>
+    <div class="admin-summary"><div><span class="eyebrow">STUDENT REGISTER</span><strong id="student-total">09</strong><small>registered students</small></div><div><span class="eyebrow">DATE VIEW</span><strong id="admin-date-title">—</strong><small>India Standard Time</small></div><div class="admin-date"><label for="date-picker" class="eyebrow">VIEW ANOTHER DAY</label><input id="date-picker" type="date"></div></div>
+    <section class="panel records-panel"><div class="records-heading"><div><span class="eyebrow">ATTENDANCE REGISTER</span><h2>Student records</h2></div><button class="icon-action" id="refresh-button" type="button" aria-label="Refresh records">↻</button></div><div class="table-scroll"><table><thead><tr><th>STUDENT</th><th>EMAIL / PHONE</th><th>DAY IN</th><th>SHORT BREAK</th><th>LUNCH BREAK</th><th>DAY OUT</th><th>STATUS</th></tr></thead><tbody id="records-body"></tbody></table></div><div class="table-empty" id="records-message" hidden></div><div class="toast" id="admin-message" role="status" hidden></div></section>
+    <div class="admin-footnote"><span>ALL TIMESTAMPS SHOWN IN IST</span><span>RECORDS STORED IN CENTRAL SQL DATABASE</span></div>
+  </main>
+</body>
+</html>

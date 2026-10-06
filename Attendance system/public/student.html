@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1b3d">
+  <title>Student attendance | Jyothi Technologies Batch-2</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body data-portal="student">
+  <header class="topbar">
+    <a class="wordmark" href="/student" aria-label="Jyothi Technologies Batch-2 home">
+      <span class="brand-mark">JT<span>.</span></span>
+      <span class="brand-copy"><strong>JYOTHI TECHNOLOGIES</strong><span>BATCH-2 <i>/</i> JUNIORS</span></span>
+    </a>
+    <div class="header-tools"><nav class="topnav"><a class="nav-link active" href="/student">Student portal</a><a class="nav-link" href="/admin">Admin portal <span aria-hidden="true">↗</span></a></nav><div class="device-clock"><span>DEVICE TIME</span><time id="device-clock" aria-label="Current device time">--:--:--</time></div></div>
+  </header>
+
+  <main class="portal-layout" id="auth-view">
+    <section class="portal-intro">
+      <div class="portal-kicker"><span class="portal-kicker-mark">JT</span><span>JYOTHI TECHNOLOGIES · BATCH 2 (JUNIORS)</span></div>
+      <div class="portal-title"><span class="eyebrow">JIT · STUDENT SERVICES</span><h1>Student Attendance Portal</h1><p>Sign in to record your campus attendance and view your attendance calendar.</p></div>
+      <section class="schedule-card" aria-labelledby="schedule-heading">
+        <h2 id="schedule-heading"><span class="schedule-icon">◷</span> Daily Schedule &amp; Break Timings</h2>
+        <ul class="schedule-list">
+          <li><strong>Day in</strong><span>After 8:55 AM</span><small>Within 500 m of campus</small></li>
+          <li><strong>Short break</strong><span>10:20–10:30 AM</span><small>10 minutes</small></li>
+          <li><strong>Lunch break</strong><span>1:00–2:00 PM</span><small>Within 2 km of campus</small></li>
+          <li><strong>Day out</strong><span>After 4:00 PM</span><small>Recorded in India Standard Time</small></li>
+        </ul>
+      </section>
+      <p class="campus-line"><span aria-hidden="true">⌖</span><span>Campus location: <strong>12°50′32.4″N, 77°30′45.0″E</strong><small>Tataguni, Bengaluru</small></span></p>
+    </section>
+    <section class="portal-login">
+      <div class="auth-card">
+        <div class="section-index">STUDENT PORTAL <span>SECURE SIGN-IN</span></div>
+        <h2>Student Sign In</h2><p class="muted">Login ID is your first name. Password is the first four letters of your name followed by @123.</p>
+        <form id="login-form" class="form-stack">
+          <label for="username">Student Name (Login ID)</label><input id="username" name="username" autocomplete="username" placeholder="Enter your first name" required>
+          <p class="student-roster"><span>Enrolled students:</span> Keerthan, Sinchana, Megha, Lekha, Tanushri, Mounika, Sanjana, Gowthami, Nithin</p>
+          <label for="password">Password</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" placeholder="First four letters of your name + @123" required><button class="password-toggle" type="button" aria-label="Show password" data-password-toggle>SHOW</button></div>
+          <div class="form-error" id="login-error" role="alert" hidden></div>
+          <button class="button button-dark button-wide" type="submit"><span>Sign in as student</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="auth-note"><span class="lock-icon">⌑</span><span>Attendance is securely recorded in the centralized SQL database.</span></div>
+      </div>
+      <footer class="portal-login-footer">JYOTHI INSTITUTE OF TECHNOLOGY <span>STUDENT ACCESS</span></footer>
+    </section>
+  </main>
+
+  <main class="dashboard" id="student-view" hidden>
+    <div class="dashboard-head"><div><div class="section-index">STUDENT PORTAL <span id="ist-clock">IST</span></div><h1>Good day, <span id="student-name">Student</span><span class="period">.</span></h1><p class="muted">Your campus day, at a glance.</p></div><div class="user-actions"><button class="button button-outline" type="button" id="profile-open">Edit profile</button><button class="button button-dark" type="button" data-logout>Log out <span aria-hidden="true">↗</span></button></div></div>
+    <div class="today-strip"><div><span class="eyebrow">TODAY · <span id="today-date">—</span></span><span class="strip-note">Times shown in India Standard Time</span></div><div class="today-event"><span class="event-dot"></span><span id="today-status">Not checked in</span></div></div>
+    <div class="student-grid">
+      <section class="panel attendance-panel"><div class="panel-heading"><div><span class="eyebrow">CAMPUS DAY</span><h2>Attendance</h2></div><span class="status-pill" id="attendance-status">NOT STARTED</span></div>
+        <div class="time-grid"><div class="time-cell"><span class="eyebrow">DAY IN</span><strong id="day-in-time">—</strong><span class="time-hint">Opens at 8:55 AM</span></div><div class="time-cell"><span class="eyebrow">DAY OUT</span><strong id="day-out-time">—</strong><span class="time-hint">After 4:00 PM</span></div></div>
+        <div class="action-row"><button class="button button-accent" type="button" id="day-in-button">◎ <span>Day in</span></button><button class="button button-outline" type="button" id="day-out-button">Day out <span aria-hidden="true">↗</span></button></div>
+        <div class="location-note"><span class="location-pin">⌖</span><span>Selecting Day in asks your browser to share your location. Choose Allow and be within 500 m of campus.</span></div>
+        <div class="break-section"><div class="break-heading"><div><span class="eyebrow">SCHEDULED WINDOWS</span><h3>Breaks</h3></div><span class="break-location">Lunch · within 2 km</span></div>
+          <div class="break-row" data-break="short"><div class="break-symbol">10</div><div class="break-info"><strong>Short break</strong><span>10:20 — 10:30 AM</span></div><span class="break-state" id="short-state">NOT TAKEN</span><button class="icon-action" type="button" data-break-start="short" aria-label="Start short break">↗</button><button class="icon-action" type="button" data-break-end="short" aria-label="End short break" hidden>✓</button></div>
+          <div class="break-row" data-break="lunch"><div class="break-symbol lunch-symbol">13</div><div class="break-info"><strong>Lunch break</strong><span>1:00 — 2:00 PM</span></div><span class="break-state" id="lunch-state">NOT TAKEN</span><button class="icon-action" type="button" data-break-start="lunch" aria-label="Start lunch break">↗</button><button class="icon-action" type="button" data-break-end="lunch" aria-label="End lunch break" hidden>✓</button></div>
+        </div><div class="toast" id="student-message" role="status" hidden></div>
+      </section>
+      <section class="panel calendar-panel"><div class="panel-heading"><div><span class="eyebrow">YOUR RECORD</span><h2>Attendance calendar</h2></div><div class="month-nav"><button class="icon-action" id="month-prev" type="button" aria-label="Previous month">←</button><span id="month-label">—</span><button class="icon-action" id="month-next" type="button" aria-label="Next month">→</button></div></div>
+        <div class="percentage-band"><div><span class="eyebrow">MONTHLY ATTENDANCE</span><strong><span id="attendance-percent">0</span><small>%</small></strong></div><div class="percentage-detail"><span id="attendance-count">0 of 0 days</span><span>Weekdays elapsed</span></div></div>
+        <div class="calendar-grid" id="calendar-grid" aria-label="Monthly attendance calendar"></div><div class="calendar-legend"><span><i class="legend-present"></i>Present</span><span><i class="legend-absent"></i>Not recorded</span><span><i class="legend-future"></i>Upcoming</span></div>
+      </section>
+    </div>
+  </main>
+
+  <dialog class="profile-dialog" id="profile-dialog"><form id="profile-form" class="profile-form"><div class="section-index">YOUR DETAILS <button type="button" class="dialog-close" aria-label="Close" data-dialog-close>×</button></div><h2>Edit profile</h2><p class="muted">Update your display name and contact details. Your student ID cannot be changed.</p><label for="profile-name">Display name</label><input id="profile-name" maxlength="80" autocomplete="name" required><label for="profile-email">Email address</label><input id="profile-email" type="email" maxlength="254" autocomplete="email"><label for="profile-phone">Phone number</label><input id="profile-phone" type="tel" maxlength="32" autocomplete="tel"><div class="form-error" id="profile-error" role="alert" hidden></div><div class="dialog-actions"><button type="button" class="button button-outline" data-dialog-close>Cancel</button><button class="button button-dark" type="submit">Save changes</button></div></form></dialog>
+</body>
+</html>

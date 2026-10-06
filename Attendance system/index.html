@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1b3d">
+  <title>JIT Attendance | Jyothi Technologies Batch-2</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body data-portal="home">
+  <header class="topbar">
+    <a class="wordmark" href="/" aria-label="Jyothi Technologies Batch-2 home">
+      <span class="brand-mark">JT<span>.</span></span>
+      <span class="brand-copy"><strong>JYOTHI TECHNOLOGIES</strong><span>BATCH-2 <i>/</i> JUNIORS</span></span>
+    </a>
+    <div class="header-tools">
+      <nav class="topnav" aria-label="Portals">
+        <a class="nav-link" href="/student">Student portal</a>
+        <a class="nav-link" href="/admin">Admin portal</a>
+      </nav>
+      <div class="device-clock"><span>DEVICE TIME</span><time id="device-clock" aria-label="Current device time">--:--:--</time></div>
+    </div>
+  </header>
+
+  <main class="portal-layout home-layout">
+    <section class="portal-intro">
+      <div class="portal-kicker"><span class="portal-kicker-mark">JT</span><span>JYOTHI TECHNOLOGIES · BATCH 2 (JUNIORS)</span></div>
+      <div class="portal-title">
+        <span class="eyebrow">JIT · CENTRAL ATTENDANCE</span>
+        <h1>Attendance Portal</h1>
+        <p>Choose your portal to continue. Student attendance and administrator records are managed centrally.</p>
+      </div>
+      <section class="schedule-card" aria-labelledby="schedule-heading">
+        <h2 id="schedule-heading"><span class="schedule-icon" aria-hidden="true">◷</span> Daily Schedule &amp; Break Timings</h2>
+        <ul class="schedule-list">
+          <li><strong>Day in</strong><span>After 8:55 AM</span><small>Within 500 m of campus</small></li>
+          <li><strong>Short break</strong><span>10:20–10:30 AM</span><small>10 minutes</small></li>
+          <li><strong>Lunch break</strong><span>1:00–2:00 PM</span><small>Within 2 km of campus</small></li>
+          <li><strong>Day out</strong><span>After 4:00 PM</span><small>India Standard Time</small></li>
+        </ul>
+      </section>
+      <p class="campus-line"><span aria-hidden="true">⌖</span><span>Campus location: <strong>12°50′32.4″N, 77°30′45.0″E</strong><small>Tataguni, Bengaluru</small></span></p>
+    </section>
+
+    <section class="portal-login home-login" aria-labelledby="portal-heading">
+      <div class="auth-card">
+        <div class="section-index">PORTAL ACCESS <span>JIT</span></div>
+        <h2 id="portal-heading">Select your portal</h2>
+        <p class="muted">Sign in with the account issued for your role.</p>
+        <div class="portal-links">
+          <a class="portal-choice" href="/student"><span class="portal-choice-mark" aria-hidden="true">S</span><span><strong>Student portal</strong><small>Day in, breaks, attendance calendar</small></span><span class="portal-arrow" aria-hidden="true">↗</span></a>
+          <a class="portal-choice" href="/admin"><span class="portal-choice-mark admin-mark" aria-hidden="true">A</span><span><strong>Admin portal</strong><small>Student records and daily attendance</small></span><span class="portal-arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="auth-note"><span class="lock-icon" aria-hidden="true">⌑</span><span>Attendance is stored in the centralized SQL database.</span></div>
+      </div>
+      <footer class="portal-login-footer">JYOTHI INSTITUTE OF TECHNOLOGY <span>2026–27</span></footer>
+    </section>
+  </main>
+</body>
+</html>
